@@ -17,7 +17,9 @@ const app = angular.module("DogFilter", [])
             dogs.helperFactory = helperFactory;
 
             /*********** Functions **********/
-            dogs.getImages = dogsService;
+            dogs.getBreedImages = function(breed){
+
+            };
         }
     ]);
 
@@ -40,7 +42,7 @@ const app = angular.module("DogFilter", [])
             var factory = {
                 urls:{
                     breedListUrl: 'https://dog.ceo/api/breeds/list',
-                    breedImagesUrl: 'https://dog.ceo/api/breed/$/images'
+                    breedImagesUrl: 'https://dog.ceo/api/breed/'
                 },
                 // MapArrayOfItemsWithId: mapArrayOfItemsWithId
             }
@@ -98,7 +100,7 @@ const app = angular.module("DogFilter", [])
                     })
             };
             this.getBreedImages = function (breed){
-                $http.get(helperFactory.urls.breedImagesUrl.replace(/$/, breed))
+                $http.get(helperFactory.urls.breedImagesUrl + breed + "/images")
                     .then(function(result){
                         var id = 0;
                         result.data.message.map(function(image){
