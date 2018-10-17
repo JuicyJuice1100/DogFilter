@@ -7,12 +7,17 @@ const app = angular.module("DogFilter", [])
     /**************************************
      ------------- Controllers ------------
      **************************************/
-    app.controller("DogsController", ["HelperFactory", "BreedFactory",
-        function(helperFactory, breedFactory){
+    app.controller("DogsController", ["HelperFactory", "BreedFactory", "ImageFactory", "DogsService",
+        function(helperFactory, breedFactory, imageFactory, dogsService){
             var dogs = this;
 
+            /*********** Factories **********/
             dogs.breedFactory = breedFactory;
+            dogs.imageFactory = imageFactory;
             dogs.helperFactory = helperFactory;
+
+            /*********** Functions **********/
+            dogs.getImages = dogsService;
         }
     ]);
 
@@ -22,16 +27,28 @@ const app = angular.module("DogFilter", [])
     //helperFactory holds constant data that is used throughout the application, makes it easier to change simple data as you only have to change in one area
     app.factory("HelperFactory", [
         function(){
+            // var mapArrayOfItemsWithId = function(item, label, array){
+            //     var id = 0;
+
+            //     item.map(function(){
+            //         array.push({
+            //             id: id,
+            //             label: 
+            //         })
+            //     })
+            // }
             var factory = {
                 urls:{
                     breedListUrl: 'https://dog.ceo/api/breeds/list',
-                    breedImagesUrl: 'https://dog.ceo/api/breed/'
-                }
+                    breedImagesUrl: 'https://dog.ceo/api/breed/$/images'
+                },
+                // MapArrayOfItemsWithId: mapArrayOfItemsWithId
             }
 
             return factory;
         }
-    ])
+    ]);
+
     app.factory("BreedFactory", [
         function(){
 
@@ -45,11 +62,23 @@ const app = angular.module("DogFilter", [])
         }
     ]);
 
+    app.factory("ImageFactory", [
+        function(){
+
+            //holds image data
+            var factory = {
+                breedImages: []
+            }
+
+            return factory;
+        }
+    ])
+
     /**************************************
      ------------- Services ------------
      **************************************/
-    app.service("DogsService", ["$http", "HelperFactory", "BreedFactory",
-        function($http, helperFactory, breedFactory){
+    app.service("DogsService", ["$http", "HelperFactory", "BreedFactory", "ImageFactory",
+        function($http, helperFactory, breedFactory, imageFactory){
             this.getDogBreeds = function (){
                 $http.get(helperFactory.urls.breedListUrl)
                     .then(function(result){
@@ -59,10 +88,27 @@ const app = angular.module("DogFilter", [])
                             breedFactory.allBreeds.push(
                                 {
                                     id: id,
-                                    breed: breed,
+                                    name: breed,
                                 }
                             );
                             id++; //this will increment id so each breed has a unique id   
+                        });
+                    }, function(){
+                        return "error";
+                    })
+            };
+            this.getBreedImages = function (breed){
+                $http.get(helperFactory.urls.breedImagesUrl.replace(/$/, breed))
+                    .then(function(result){
+                        var id = 0;
+                        result.data.message.map(function(image){
+                            imageFactory.breedImages.push(
+                                {
+                                    id: id,
+                                    imageLink: image
+                                }
+                            );
+                            id++;
                         });
                     }, function(){
                         return "error";

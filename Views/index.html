@@ -7,10 +7,15 @@
     </head>
     <body>
         <div ng-controller="DogsController as dogs">
-            <select ng-options="dog as dog.breed for dog in dogs.breedFactory.allBreeds" ng-model="selected">
-                <!-- This is the default selected -->
-                <option value="">{{dogs.breedFactory.defaultSelect}}</option> 
-            </select>
+            <!-- <select ng-options="dog as dog.breed for dog in dogs.breedFactory.allBreeds" ng-model="selected">
+                    <option value="">{{dogs.breedFactory.defaultSelect}}</option> 
+            </select> -->
+            <ul>
+                <li>test</li>
+                <li ng-repeat="breed in dogs.breedFactory.allBreeds">{{breed.name}}</li>
+            </ul>
         </div>
+            
+
     </body>
 </html>
