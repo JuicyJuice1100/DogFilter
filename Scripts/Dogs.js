@@ -18,7 +18,7 @@ const app = angular.module("DogFilter", [])
 
             /*********** Functions **********/
             dogs.getBreedImages = function(breed){
-
+                dogsService.getBreedImages(breed);
             };
         }
     ]);
@@ -39,11 +39,18 @@ const app = angular.module("DogFilter", [])
             //         })
             //     })
             // }
+
+            var resetArray = function(item){
+                item = [];
+            }
+
             var factory = {
                 urls:{
                     breedListUrl: 'https://dog.ceo/api/breeds/list',
                     breedImagesUrl: 'https://dog.ceo/api/breed/'
                 },
+                /********* functions  ***********/
+                resetArray: resetArray
                 // MapArrayOfItemsWithId: mapArrayOfItemsWithId
             }
 
@@ -51,25 +58,32 @@ const app = angular.module("DogFilter", [])
         }
     ]);
 
-    app.factory("BreedFactory", [
-        function(){
+    app.factory("BreedFactory", ["HelperFactory",
+        function(helperFactory){
 
+            /******* Factory ******/
             //holds dog data
             var factory = {
                 defaultSelect: "Select a Dog Breed...",
-                allBreeds: []
+                allBreeds: [],
+
+                /******** Functions ********/
+                resetAllBreeds: helperFactory.resetArray(this.allBreeds)
             }
 
             return factory;
         }
     ]);
 
-    app.factory("ImageFactory", [
-        function(){
+    app.factory("ImageFactory", ["HelperFactory",
+        function(helperFactory){
 
             //holds image data
             var factory = {
-                breedImages: []
+                breedImages: [],
+                
+                /******** Functions **********/
+                resetAllImages: helperFactory.resetArray(this.breedImages)
             }
 
             return factory;
@@ -84,6 +98,7 @@ const app = angular.module("DogFilter", [])
             this.getDogBreeds = function (){
                 $http.get(helperFactory.urls.breedListUrl)
                     .then(function(result){
+                        breedFactory.resetAllBreeds()
                         var id = 0; //this will add ids to array of breeds
                         result.data.message.map(function(breed){
                             //goes through each object that is in json.data and adds it to the allBreeds array with an id and breed name
@@ -102,12 +117,13 @@ const app = angular.module("DogFilter", [])
             this.getBreedImages = function (breed){
                 $http.get(helperFactory.urls.breedImagesUrl + breed + "/images")
                     .then(function(result){
+                        imageFactory.resetAllImages();
                         var id = 0;
                         result.data.message.map(function(image){
                             imageFactory.breedImages.push(
                                 {
                                     id: id,
-                                    imageLink: image
+                                    link: image
                                 }
                             );
                             id++;

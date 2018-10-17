@@ -13,17 +13,17 @@
             <div>
                 <ul>
                     <li ng-repeat="breed in dogs.breedFactory.allBreeds">
-                        <button>{{breed.name}}</button>
+                        <span ng-click="dogs.getBreedImages(breed.name)">{{breed.name}}</span>
                     </li>
                 </ul>
             </div>
             <div>
                 <ul>
-                    <li ng-repeat=""
+                    <li ng-repeat="image in dogs.imageFactory.breedImages">
+                        <img ng-src="image.link">
+                    </li>
                 </ul>
             </div>
         </div>
-            
-
     </body>
 </html>
