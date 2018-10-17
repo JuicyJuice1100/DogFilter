@@ -6,9 +6,7 @@
     </head>
     <body>
         <div ng-controller="DogsController as dogs">
-            {{dogs.test.test}}
-            {{dogs.test.test2}}
-            {{dogs.test.breeds}}
+            <select ng-options="dog as dog.breed for dog in dogs.dogsFactory.allBreeds" ng-model="selected"></select>
         </div>
     </body>
 </html>
