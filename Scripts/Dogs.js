@@ -98,7 +98,7 @@ const app = angular.module("DogFilter", [])
             this.getDogBreeds = function (){
                 $http.get(helperFactory.urls.breedListUrl)
                     .then(function(result){
-                        breedFactory.resetAllBreeds()
+                        breedFactory.resetAllBreeds
                         var id = 0; //this will add ids to array of breeds
                         result.data.message.map(function(breed){
                             //goes through each object that is in json.data and adds it to the allBreeds array with an id and breed name
@@ -117,7 +117,7 @@ const app = angular.module("DogFilter", [])
             this.getBreedImages = function (breed){
                 $http.get(helperFactory.urls.breedImagesUrl + breed + "/images")
                     .then(function(result){
-                        imageFactory.resetAllImages();
+                        imageFactory.resetAllImages;
                         var id = 0;
                         result.data.message.map(function(image){
                             imageFactory.breedImages.push(

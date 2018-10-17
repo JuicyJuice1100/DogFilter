@@ -20,7 +20,7 @@
             <div>
                 <ul>
                     <li ng-repeat="image in dogs.imageFactory.breedImages">
-                        <img ng-src="image.link">
+                        <img ng-src="{{image.link}}" ng-alt="{{image.link}}">
                     </li>
                 </ul>
             </div>
