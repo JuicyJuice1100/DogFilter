@@ -1,12 +1,16 @@
 <!doctype html>
 <html ng-app="DogFilter">
     <head>
+        <!-- TODO: add all meta data -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.js"></script>
         <script type="text/javascript" src="../Scripts/Dogs.js"></script>
     </head>
     <body>
         <div ng-controller="DogsController as dogs">
-            <select ng-options="dog as dog.breed for dog in dogs.dogsFactory.allBreeds" ng-model="selected"></select>
+            <select ng-options="dog as dog.breed for dog in dogs.breedFactory.allBreeds" ng-model="selected">
+                <!-- This is the default selected -->
+                <option value="">{{dogs.breedFactory.defaultSelect}}</option> 
+            </select>
         </div>
     </body>
 </html>

@@ -1,6 +1,3 @@
-const breedListUrl = 'https://dog.ceo/api/breeds/list';
-const breedImagesUrl = 'https://dog.ceo/api/breed/';
-
 const app = angular.module("DogFilter", [])
 
     app.run(["DogsService", function(dogsService){
@@ -10,50 +7,66 @@ const app = angular.module("DogFilter", [])
     /**************************************
      ------------- Controllers ------------
      **************************************/
-    app.controller("DogsController", ["DogsFactory",
-        function(dogsFactory){
+    app.controller("DogsController", ["HelperFactory", "BreedFactory",
+        function(helperFactory, breedFactory){
             var dogs = this;
 
-            dogs.dogsFactory = dogsFactory;
+            dogs.breedFactory = breedFactory;
+            dogs.helperFactory = helperFactory;
         }
-    ])
+    ]);
 
     /**************************************
      ------------- Factories ------------
      **************************************/
-    app.factory("DogsFactory", [
+    //helperFactory holds constant data that is used throughout the application, makes it easier to change simple data as you only have to change in one area
+    app.factory("HelperFactory", [
         function(){
-
             var factory = {
-                allBreeds: []
+                urls:{
+                    breedListUrl: 'https://dog.ceo/api/breeds/list',
+                    breedImagesUrl: 'https://dog.ceo/api/breed/'
+                }
             }
 
             return factory;
         }
     ])
+    app.factory("BreedFactory", [
+        function(){
+
+            //holds dog data
+            var factory = {
+                defaultSelect: "Select a Dog Breed...",
+                allBreeds: []
+            }
+
+            return factory;
+        }
+    ]);
 
     /**************************************
      ------------- Services ------------
      **************************************/
-    app.service("DogsService", ["$http", "DogsFactory",
-        function($http, dogsFactory){
+    app.service("DogsService", ["$http", "HelperFactory", "BreedFactory",
+        function($http, helperFactory, breedFactory){
             this.getDogBreeds = function (){
-                $http.get(breedListUrl)
+                $http.get(helperFactory.urls.breedListUrl)
                     .then(function(result){
                         var id = 0; //this will add ids to array of breeds
                         result.data.message.map(function(breed){
                             //goes through each object that is in json.data and adds it to the allBreeds array with an id and breed name
-                            dogsFactory.allBreeds.push(
+                            breedFactory.allBreeds.push(
                                 {
                                     id: id,
                                     breed: breed,
                                 }
                             );
-                            id++; //this willl increment id so each breed has a unique id   
+                            id++; //this will increment id so each breed has a unique id   
                         });
                     }, function(){
                         return "error";
                     })
             };
         }
-    ])
+    ]);
