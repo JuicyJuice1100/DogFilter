@@ -4,7 +4,6 @@ body {
 
 ul {
     list-style: none;
-    padding: 0;
 }
 
 #searchbar {
@@ -40,11 +39,11 @@ li span {
 }
 
 #sidebar {
-    width: 30%;
+    width: 25%;
 }
 
 #sidebar ul {
-    
+    padding: 0;
 }
 
 #imageSpace {
@@ -62,4 +61,8 @@ img {
     max-width: 200px;
     max-height: 300px;
     border-radius: 10px;
+}
+
+img:hover {
+    transform: scale(1.3); 
 }
