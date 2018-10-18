@@ -1,10 +1,16 @@
+body {
+    overflow-y: hidden;
+}
+
 ul {
     list-style: none;
     padding: 0;
 }
 
 #searchbar {
-    display: flex;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
 }
 
 #searchbar input {
@@ -12,6 +18,11 @@ ul {
     width: 75%;
     justify-content: center;
     flex-basis: 100%;
+}
+
+#searchbar label {
+    font-size: 25px;
+    font-style: bold;
 }
 
 ::-webkit-scrollbar {
@@ -24,17 +35,22 @@ li span {
     
 #container {
     display: flex;
+    height: 100vh;
 }
 
 #sidebar {
     max-width: 30%;
+    overflow-y: auto;
 }
 
 #imageSpace {
+    overflow: auto;
+}
+
+#imageSpace ul{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    overflow: auto;
 }
 
 img {

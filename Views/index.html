@@ -27,7 +27,9 @@
             <!-- Filter Search Textbox-->
             <div id="searchbar">
                 <form ng-submit="dogs.getBreedImages(input)">
-                    <input ng-change="dogs.reset()" type="text" ng-model="input">
+                    <label> Search:
+                            <input ng-change="dogs.reset()" type="text" ng-model="input">
+                    </label>
                 </form>
                 <div ng-show="dogs.helperFactory.validation.showInvalidBreedMessage">
                     <span>{{dogs.helperFactory.validation.invalidBreedMessage}}</span>
@@ -46,8 +48,8 @@
                     </div>
                     
                     <!-- Images of Selected Breed -->
-                    <div>
-                        <ul id="imageSpace">
+                    <div id="imageSpace">
+                        <ul>
                             <li ng-repeat="image in dogs.imageFactory.breedImages">
                                 <img ng-src="{{image.link}}" ng-alt="{{image.link}}">
                             </li>
