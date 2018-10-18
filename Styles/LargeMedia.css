@@ -104,9 +104,3 @@ img:hover {
     color: red;
     font-size: medium;
 }
-
-***** Loading ******
-.loading {
-    display: block;
-    margin: auto;
-}

@@ -35,11 +35,12 @@
 
     #sidebar ul {
         margin: 0;
+        margin-bottom: 10%;
         padding: 0;
     }
 
     #sidebar li {
-        font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+        font: 200 13px/1.5 Helvetica, Verdana, sans-serif;
         border-bottom: 1px solid #ccc;
     }
 
@@ -62,7 +63,7 @@
     }
 
     #sidebar li:hover {
-        font-size: 30px;
+        font-size: 15px;
         background: #f6f6f6;
     }
        
