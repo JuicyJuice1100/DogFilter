@@ -18,7 +18,7 @@ const app = angular.module("DogFilter", [])
 
             /*********** Functions **********/
             dogs.getBreedImages = function(breed){
-                if(breedFactory.breeds.some(dog => dog.name.toLowerCase() === breed.toLowerCase())){
+                if(breedFactory.breeds.some(dog => dog.name.toLowerCase() === breed.toLowerCase())){ //checks to see if the input is valid
                     dogsService.getBreedImages(breed);
                 } else {
                     helperFactory.validation.showInvalidBreedMessage = true;
