@@ -27,9 +27,7 @@
             <!-- Filter Search Textbox-->
             <div id="searchbar">
                 <form ng-submit="dogs.getBreedImages(input)">
-                    <label> Search:
-                            <input ng-change="dogs.reset()" type="text" ng-model="input">
-                    </label>
+                        <input ng-change="dogs.reset()" type="text" ng-model="input" placeholder="Search for a dog breed...">
                 </form>
                 <div ng-show="dogs.helperFactory.validation.showInvalidBreedMessage">
                     <span>{{dogs.helperFactory.validation.invalidBreedMessage}}</span>

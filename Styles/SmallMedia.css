@@ -6,28 +6,49 @@
     ::-webkit-scrollbar {
         display: none;
     }
+
+    #searchbar {
+        margin: auto;
+        width: 100%;
+        padding: 10px;
+    }
     
-    li {
+    #searchbar input {
+        display: block;
+        font-size: 15px;
+        width: 75%;
+        justify-content: center;
+        flex-basis: 100%;
+    }
+
+    
+    li span {
         cursor: pointer;
     }
         
     #container {
         display: flex;
+        height: 100vh;
     }
     
     #sidebar {
-        max-width: 30%;
+        width: 40%;
+        overflow: auto;
     }
     
     #imageSpace {
+        width: 60%;
+        overflow: auto;
+    }
+    
+    #imageSpace ul{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        overflow: hidden;
     }
     
     img {
-        width: 100px;
-        max-height: 100px;
+        width: 100%;
+        max-height: 200px;
     }
 }

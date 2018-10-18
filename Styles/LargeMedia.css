@@ -18,6 +18,7 @@ ul {
     width: 75%;
     justify-content: center;
     flex-basis: 100%;
+    border-radius: 10px;
 }
 
 #searchbar label {
@@ -39,12 +40,16 @@ li span {
 }
 
 #sidebar {
-    max-width: 30%;
-    overflow-y: auto;
+    width: 30%;
+}
+
+#sidebar ul {
+    
 }
 
 #imageSpace {
     overflow: auto;
+    width: 70%;
 }
 
 #imageSpace ul{
@@ -56,4 +61,5 @@ li span {
 img {
     max-width: 200px;
     max-height: 300px;
+    border-radius: 10px;
 }
