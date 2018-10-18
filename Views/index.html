@@ -26,37 +26,34 @@
         <div ng-controller="DogsController as dogs">
             <!-- Filter Search Textbox-->
             <div id="searchbar">
-                <form ng-submit="dogs.getBreedImages(input)">
+                <form ng-submit="dogs.getBreedImages(input)" novalidate>
                         <input ng-change="dogs.reset()" type="text" ng-model="input" placeholder="Search for a dog breed...">
                 </form>
-                <div ng-show="dogs.helperFactory.validation.showInvalidBreedMessage">
+                <div class="validation" ng-show="dogs.helperFactory.validation.showInvalidBreedMessage">
                     <span>{{dogs.helperFactory.validation.invalidBreedMessage}}</span>
                 </div>
             </div>
             <div id="container">
-                    <div id="sidebar">
-                        <!-- List of Filtered Breeds -->
-                        <div>
-                            <ul>
-                                <li ng-repeat="breed in dogs.breedFactory.breeds | filter : input">
-                                    <span ng-click="dogs.getBreedImages(breed.name)">{{breed.name}}</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Images of Selected Breed -->
-                    <div id="imageSpace">
+                <div id="sidebar">
+                    <!-- List of Filtered Breeds -->
+                    <div>
                         <ul>
-                            <li ng-repeat="image in dogs.imageFactory.breedImages">
-                                <img ng-src="{{image.link}}" ng-alt="{{image.link}}">
+                            <li ng-repeat="breed in dogs.breedFactory.breeds | filter : input">
+                                <span ng-click="dogs.getBreedImages(breed.name)">{{breed.name}}</span>
                             </li>
                         </ul>
                     </div>
+                </div>
+                
+                <!-- Images of Selected Breed -->
+                <div id="imageSpace">
+                    <ul>
+                        <li ng-repeat="image in dogs.imageFactory.breedImages">
+                            <img ng-src="{{image.link}}" ng-alt="{{image.link}}">
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <!-- <footer>
-            <a href="https://icons8.com">Icon pack by Icons8</a>
-        </footer> -->
     </body>
 </html>

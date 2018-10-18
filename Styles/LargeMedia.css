@@ -40,6 +40,7 @@ li span {
 
 #sidebar {
     width: 25%;
+    overflow: auto;
 }
 
 #sidebar ul {
@@ -94,4 +95,9 @@ img {
 img:hover {
     transform: scale(1.3); 
     transition: .2s;
+}
+
+.validation {
+    color: red;
+    font-size: medium;
 }

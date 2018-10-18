@@ -40,17 +40,6 @@ const app = angular.module("DogFilter", [])
     //helperFactory holds constant data that is used throughout the application, makes it easier to change simple data as you only have to change in one area
     app.factory("HelperFactory", [
         function(){
-            // var mapArrayOfItemsWithId = function(item, label, array){
-            //     var id = 0;
-
-            //     item.map(function(){
-            //         array.push({
-            //             id: id,
-            //             label: 
-            //         })
-            //     })
-            // }
-
             var resetArray = function(array){
                 angular.copy([], array);
             }
@@ -66,7 +55,6 @@ const app = angular.module("DogFilter", [])
                 },
                 /********* functions  ***********/
                 resetArray: resetArray
-                // MapArrayOfItemsWithId: mapArrayOfItemsWithId
             }
 
             return factory;
