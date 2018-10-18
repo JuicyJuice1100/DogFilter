@@ -1,103 +1,108 @@
-body {
-    overflow-y: hidden;
-}
+@media (min-width: 801px) {
+    /******* Full Page ********/
+    body {
+        overflow-y: hidden;
+    }
 
-ul {
-    list-style: none;
-}
+    ul {
+        list-style: none;
+    }
 
-#searchbar {
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-}
+    ::-webkit-scrollbar {
+        display: none;
+    }
 
-#searchbar input {
-    font-size: 25px;
-    width: 75%;
-    justify-content: center;
-    flex-basis: 100%;
-    border-radius: 10px;
-}
+    /******** Search Bar *******/
+    #searchbar {
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+    }
 
-#searchbar label {
-    font-size: 25px;
-    font-style: bold;
-}
+    #searchbar input {
+        font-size: 25px;
+        width: 75%;
+        justify-content: center;
+        flex-basis: 100%;
+        border-radius: 10px;
+    }
 
-::-webkit-scrollbar {
-    display: none;
-}
-
-li span {
-    cursor: pointer;
-}
+    #searchbar label {
+        font-size: 25px;
+        font-style: bold;
+    }
     
-#container {
-    display: flex;
-    height: 100vh;
-}
+    /* Anything below searchbar */
+    #container {
+        display: flex;
+        height: 100vh;
+    }
 
-#sidebar {
-    width: 25%;
-    overflow: auto;
-}
+    /********* Sidebar ********/
+    #sidebar {
+        width: 25%;
+        overflow: auto;
+    }
 
-#sidebar ul {
-    margin: 0;
-    padding: 0;
-}
+    #sidebar ul {
+        margin: 0;
+        padding: 0;
+    }
 
-#sidebar li {
-    font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
-    border-bottom: 1px solid #ccc;
-}
+    #sidebar li {
+        font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+        border-bottom: 1px solid #ccc;
+    }
 
-#sidebar li:last-child {
-    border: none;
-}
+    #sidebar li:last-child {
+        border: none;
+    }
 
-#sidebar li span{
-    text-decoration: none;
-    color: #000;
-    display: block;
-    width: 200px;
-   
-    -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
-    -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
-    -o-transition: font-size 0.3s ease, background-color 0.3s ease;
-    -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
-    transition: font-size 0.3s ease, background-color 0.3s ease;
-}
+    #sidebar li span{
+        text-decoration: none;
+        color: #000;
+        display: block;
+        width: 200px;
+        cursor: pointer;
+    
+        -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+        -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+        -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+        -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+        transition: font-size 0.3s ease, background-color 0.3s ease;
+    }
 
-#sidebar li:hover {
-    font-size: 30px;
-    background: #f6f6f6;
-}
+    #sidebar li:hover {
+        font-size: 30px;
+        background: #f6f6f6;
+    }
 
-#imageSpace {
-    overflow: auto;
-    width: 70%;
-}
+    /******* Images *******/
+    #imageSpace {
+        overflow: auto;
+        width: 70%;
+    }
 
-#imageSpace ul{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
+    #imageSpace ul{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 
-img {
-    max-width: 200px;
-    max-height: 300px;
-    border-radius: 10px;
-}
+    img {
+        max-width: 200px;
+        max-height: 300px;
+        border-radius: 10px;
+    }
 
-img:hover {
-    transform: scale(1.3); 
-    transition: .2s;
-}
+    img:hover {
+        transform: scale(1.3); 
+        transition: .2s;
+    }
 
-.validation {
-    color: red;
-    font-size: medium;
+    /***** validation ******/
+    .validation {
+        color: red;
+        font-size: medium;
+    }
 }

@@ -1,4 +1,5 @@
 @media (max-width: 800px) {
+    /******* Full Page ********/
     ul {
         list-style: none;
     }
@@ -7,6 +8,7 @@
         display: none;
     }
 
+    /******** Search Bar *******/
     #searchbar {
         margin: auto;
         width: 100%;
@@ -20,7 +22,13 @@
         flex-basis: 100%;
     }
 
-    
+    /* Anything below searchbar */
+    #container {
+        display: flex;
+        height: 100vh;
+    }
+
+    /********* Sidebar ********/
     #sidebar {
         width: 25%;
     }
@@ -44,6 +52,7 @@
         color: #000;
         display: block;
         width: 200px;
+        cursor: pointer;
     
         -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
         -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
@@ -56,22 +65,13 @@
         font-size: 30px;
         background: #f6f6f6;
     }
-
-    
-    li span {
-        cursor: pointer;
-    }
-        
-    #container {
-        display: flex;
-        height: 100vh;
-    }
-    
+       
     #sidebar {
         width: 40%;
         overflow: auto;
     }
     
+    /******* Images *******/
     #imageSpace {
         width: 60%;
         overflow: auto;
@@ -86,5 +86,11 @@
     img {
         width: 100%;
         max-height: 200px;
+    }
+
+    /***** validation ******/
+    .validation {
+        color: red;
+        font-size: medium;
     }
 }
