@@ -66,8 +66,8 @@ const app = angular.module("DogFilter", [])
         }
     ]);
 
-    app.factory("BreedFactory", ["HelperFactory",
-        function(helperFactory){
+    app.factory("BreedFactory", [
+        function(){
 
             /******* Factory ******/
             //holds dog data
@@ -80,8 +80,8 @@ const app = angular.module("DogFilter", [])
         }
     ]);
 
-    app.factory("ImageFactory", ["HelperFactory",
-        function(helperFactory){
+    app.factory("ImageFactory", [
+        function(){
 
             //holds image data
             var factory = {
