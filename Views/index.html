@@ -3,18 +3,19 @@
     <head>
         <!-- TODO: add all meta data -->
         <!-- Angular Library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular-animate.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular-animate.min.js"></script>
 
         <!-- Javascript Files -->
         <script type="text/javascript" src="../Scripts/Dogs.js"></script>
 
         <!-- Style Sheets -->
+        <link rel="stylesheet" href="../Styles/Styles.css">
     </head>
     <body>
         <div ng-controller="DogsController as dogs">
             <!-- Filter Search Textbox-->
-            <form ng-submit="dogs.getBreedImages()">
+            <form ng-submit="dogs.getBreedImages(input)">
                 <input ng-change="dogs.reset()" type="text" ng-model="input">
             </form>
             <div ng-show="dogs.helperFactory.validation.showInvalidBreedMessage">
