@@ -22,35 +22,39 @@
         <link rel="stylesheet" href="../Styles/Styles.css">
     </head>
     <body>
-        <div ng-controller="DogsController as dogs">
-            <!-- Filter Search Textbox-->
-            <form ng-submit="dogs.getBreedImages(input)">
-                <input ng-change="dogs.reset()" type="text" ng-model="input">
-            </form>
-            <div ng-show="dogs.helperFactory.validation.showInvalidBreedMessage">
-                <span>{{dogs.helperFactory.validation.invalidBreedMessage}}</span>
-            </div>
-
-            <!-- List of Filtered Breeds -->
-            <div>
-                <ul>
-                    <li ng-repeat="breed in dogs.breedFactory.breeds | filter : input">
-                        <span ng-click="dogs.getBreedImages(breed.name)">{{breed.name}}</span>
-                    </li>
-                </ul>
+        <div id="container" ng-controller="DogsController as dogs">
+            <div id="sidebar">
+                <!-- Filter Search Textbox-->
+                <div>
+                    <form ng-submit="dogs.getBreedImages(input)">
+                        <input ng-change="dogs.reset()" type="text" ng-model="input">
+                    </form>
+                    <div ng-show="dogs.helperFactory.validation.showInvalidBreedMessage">
+                        <span>{{dogs.helperFactory.validation.invalidBreedMessage}}</span>
+                    </div>
+                </div>
+    
+                <!-- List of Filtered Breeds -->
+                <div>
+                    <ul>
+                        <li ng-repeat="breed in dogs.breedFactory.breeds | filter : input">
+                            <span ng-click="dogs.getBreedImages(breed.name)">{{breed.name}}</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
             
             <!-- Images of Selected Breed -->
             <div>
-                <ul>
+                <ul id="imageSpace">
                     <li ng-repeat="image in dogs.imageFactory.breedImages">
                         <img ng-src="{{image.link}}" ng-alt="{{image.link}}">
                     </li>
                 </ul>
             </div>
         </div>
-        <footer>
+        <!-- <footer>
             <a href="https://icons8.com">Icon pack by Icons8</a>
-        </footer>
+        </footer> -->
     </body>
 </html>
