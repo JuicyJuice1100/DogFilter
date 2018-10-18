@@ -1,4 +1,4 @@
-app.factory("BreedFactory", [
+app.factory("DogsFactory", [
     function(){
 
         /******* Factory ******/

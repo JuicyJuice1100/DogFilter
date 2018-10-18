@@ -1,14 +1,14 @@
-app.service("DogsService", ["$http", "HelperFactory", "BreedFactory", "ImageFactory",
-    function($http, helperFactory, breedFactory, imageFactory){
+app.service("DogsService", ["$http", "HelperFactory", "DogsFactory", "ImageFactory",
+    function($http, helperFactory, dogsFactory, imageFactory){
         this.getDogBreeds = function (){
             helperFactory.loading.isLoading = true;
             $http.get(helperFactory.urls.breedListUrl)
                 .then(function(result){
-                    helperFactory.resetArray(breedFactory.breeds); //resets all breeds to a blank array
+                    helperFactory.resetArray(dogsFactory.breeds); //resets all breeds to a blank array
                     var id = 0; //this will add ids to array of breeds
                     result.data.message.map(function(breed){
                         //goes through each object that is in json.data and adds it to the allBreeds array with an id and breed name
-                        breedFactory.breeds.push(
+                        dogsFactory.breeds.push(
                             {
                                 id: id,
                                 name: breed.toUpperCase(),

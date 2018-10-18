@@ -19,13 +19,12 @@
         <script type="text/javascript" src="../Scripts/Dogs.js"></script>
 
         <script type="text/javascript" src="../Scripts/Dogs/DogsController.js"></script>
+        <script type="text/javascript" src="../Scripts/Dogs/DogsFactory.js"></script>
         <script type="text/javascript" src="../Scripts/Dogs/DogsServices.js"></script>
 
         <script type="text/javascript" src="../Scripts/Images/ImageFactory.js"></script>
 
         <script type="text/javascript" src="../Scripts/Helper/HelperFactory.js"></script>
-
-        <script type="text/javascript" src="../Scripts/Breeds/BreedFactory.js"></script>
 
         <!-- Style Sheets -->
         <link rel="stylesheet" href="../Styles/LargeMedia.css">
@@ -50,7 +49,7 @@
                     <!-- List of Filtered Breeds -->
                     <div>
                         <ul>
-                            <li ng-repeat="breed in dogs.breedFactory.breeds | filter : input">
+                            <li ng-repeat="breed in dogs.dogsFactory.breeds | filter : input">
                                 <span ng-click="dogs.getBreedImages(breed.name)">{{breed.name}}</span>
                             </li>
                         </ul>

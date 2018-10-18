@@ -1,15 +1,15 @@
-app.controller("DogsController", ["$timeout", "HelperFactory", "BreedFactory", "ImageFactory", "DogsService",
-    function($timeout, helperFactory, breedFactory, imageFactory, dogsService){
+app.controller("DogsController", ["$timeout", "HelperFactory", "DogsFactory", "ImageFactory", "DogsService",
+    function($timeout, helperFactory, dogsFactory, imageFactory, dogsService){
         var dogs = this;
 
         /*********** Factories **********/
-        dogs.breedFactory = breedFactory;
+        dogs.dogsFactory = dogsFactory;
         dogs.imageFactory = imageFactory;
         dogs.helperFactory = helperFactory;
 
         /*********** Functions **********/
         dogs.getBreedImages = function(breed){
-            if(breedFactory.breeds.some(dog => dog.name.toLowerCase() === breed.toLowerCase())){ //checks to see if the input is valid
+            if(dogsFactory.breeds.some(dog => dog.name.toLowerCase() === breed.toLowerCase())){ //checks to see if the input is valid
                 dogsService.getBreedImages(breed);
             } else {
                 helperFactory.validation.showInvalidBreedMessage = true;
