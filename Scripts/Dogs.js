@@ -53,6 +53,11 @@ const app = angular.module("DogFilter", [])
                     invalidBreedMessage: "Breed not in Database",
                     showInvalidBreedMessage: false
                 },
+                loading:{
+                    image: "../Content/Images/loading.gif",
+                    alt: "Loading...",
+                    isLoading: false
+                },
                 /********* functions  ***********/
                 resetArray: resetArray
             }
@@ -93,6 +98,7 @@ const app = angular.module("DogFilter", [])
     app.service("DogsService", ["$http", "HelperFactory", "BreedFactory", "ImageFactory",
         function($http, helperFactory, breedFactory, imageFactory){
             this.getDogBreeds = function (){
+                helperFactory.loading.isLoading = true;
                 $http.get(helperFactory.urls.breedListUrl)
                     .then(function(result){
                         helperFactory.resetArray(breedFactory.breeds); //resets all breeds to a blank array
@@ -102,17 +108,20 @@ const app = angular.module("DogFilter", [])
                             breedFactory.breeds.push(
                                 {
                                     id: id,
-                                    name: breed,
+                                    name: breed.toUpperCase(),
                                 }
                             );
                             id++; //this will increment id so each breed has a unique id   
                         });
-                    }, function(){
-                        return "error";
-                    })
+                    }, function(){ //insert error function here
+                        //TODO: return proper error message
+                    }).finally(function(){
+                        helperFactory.loading.isLoading = false;
+                    });
             };
             this.getBreedImages = function (breed){
-                $http.get(helperFactory.urls.breedImagesUrl + breed + "/images")
+                helperFactory.loading.isLoading = true;
+                $http.get(helperFactory.urls.breedImagesUrl + breed.toLowerCase() + "/images")
                     .then(function(result){
                         helperFactory.resetArray(imageFactory.breedImages); //reset all images to a blank array
                         var id = 0;
@@ -125,9 +134,11 @@ const app = angular.module("DogFilter", [])
                             );
                             id++;
                         });
-                    }, function(){
-                        return "error";
-                    })
+                    }, function(){ //insert error function here
+                        //TODO: return proper error message
+                    }).finally(function(){
+                        helperFactory.loading.isLoading = false;
+                    });
             };
         }
     ]);

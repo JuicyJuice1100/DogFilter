@@ -1,108 +1,114 @@
-@media (min-width: 801px) {
-    /******* Full Page ********/
-    body {
-        overflow-y: hidden;
-    }
+/******* Full Page ********/
+body {
+    overflow-y: hidden;
+}
 
-    ul {
-        list-style: none;
-    }
+ul {
+    list-style: none;
+}
 
-    ::-webkit-scrollbar {
-        display: none;
-    }
+::-webkit-scrollbar {
+    display: none;
+}
 
-    /******** Search Bar *******/
-    #searchbar {
-        margin: auto;
-        width: 50%;
-        padding: 10px;
-    }
+/******** Search Bar *******/
+#searchbar {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
 
-    #searchbar input {
-        font-size: 25px;
-        width: 75%;
-        justify-content: center;
-        flex-basis: 100%;
-        border-radius: 10px;
-    }
+#searchbar input {
+    font-size: 25px;
+    width: 75%;
+    justify-content: center;
+    flex-basis: 100%;
+    border-radius: 10px;
+}
 
-    #searchbar label {
-        font-size: 25px;
-        font-style: bold;
-    }
-    
-    /* Anything below searchbar */
-    #container {
-        display: flex;
-        height: 100vh;
-    }
+#searchbar label {
+    font-size: 25px;
+    font-style: bold;
+}
 
-    /********* Sidebar ********/
-    #sidebar {
-        width: 25%;
-        overflow: auto;
-    }
+/* Anything below searchbar */
+#container {
+    display: flex;
+    height: 100vh;
+}
 
-    #sidebar ul {
-        margin: 0;
-        padding: 0;
-    }
+/********* Sidebar ********/
+#sidebar {
+    width: 25%;
+    overflow: auto;
+}
 
-    #sidebar li {
-        font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
-        border-bottom: 1px solid #ccc;
-    }
+#sidebar ul {
+    margin: 0;
+    padding: 0;
+}
 
-    #sidebar li:last-child {
-        border: none;
-    }
+#sidebar li {
+    font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+    border-bottom: 1px solid #ccc;
+}
 
-    #sidebar li span{
-        text-decoration: none;
-        color: #000;
-        display: block;
-        width: 200px;
-        cursor: pointer;
-    
-        -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
-        -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
-        -o-transition: font-size 0.3s ease, background-color 0.3s ease;
-        -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
-        transition: font-size 0.3s ease, background-color 0.3s ease;
-    }
+#sidebar li:last-child {
+    border: none;
+}
 
-    #sidebar li:hover {
-        font-size: 30px;
-        background: #f6f6f6;
-    }
+#sidebar li span{
+    text-decoration: none;
+    color: #000;
+    display: block;
+    width: 200px;
+    cursor: pointer;
 
-    /******* Images *******/
-    #imageSpace {
-        overflow: auto;
-        width: 70%;
-    }
+    -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+    transition: font-size 0.3s ease, background-color 0.3s ease;
+}
 
-    #imageSpace ul{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
+#sidebar li:hover {
+    font-size: 30px;
+    background: #f6f6f6;
+}
 
-    img {
-        max-width: 200px;
-        max-height: 300px;
-        border-radius: 10px;
-    }
+/******* Images *******/
+#imageSpace {
+    overflow: auto;
+    width: 70%;
+}
 
-    img:hover {
-        transform: scale(1.3); 
-        transition: .2s;
-    }
+#imageSpace ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 
-    /***** validation ******/
-    .validation {
-        color: red;
-        font-size: medium;
-    }
+img {
+    max-width: 200px;
+    max-height: 300px;
+    border-radius: 10px;
+}
+
+img:hover {
+    transform: scale(1.3); 
+    transition: .2s;
+}
+
+/***** validation ******/
+.validation {
+    color: red;
+    font-size: medium;
+}
+
+***** Loading ******
+.loading {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
