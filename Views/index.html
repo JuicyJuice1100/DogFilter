@@ -1,7 +1,16 @@
 <!doctype html>
 <html ng-app="DogFilter">
     <head>
-        <!-- TODO: add all meta data -->
+        <title>Dog Filter</title>
+        <link rel="icon" type="image/png" href="https://png.icons8.com/windows/50/000000/doge.png">
+        <!-- Meta Data -->
+        <meta charset="UTF-8">
+        <meta name="description" content="Filter for Dog.API">
+        <meta name="keywords" content="HTML, CSS, JavaScript, AngularJS">
+        <meta name="author" content="Justin L. Espiritu">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
         <!-- Angular Library -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular-animate.min.js"></script>
@@ -21,6 +30,7 @@
             <div ng-show="dogs.helperFactory.validation.showInvalidBreedMessage">
                 <span>{{dogs.helperFactory.validation.invalidBreedMessage}}</span>
             </div>
+
             <!-- List of Filtered Breeds -->
             <div>
                 <ul>
@@ -29,6 +39,7 @@
                     </li>
                 </ul>
             </div>
+            
             <!-- Images of Selected Breed -->
             <div>
                 <ul>
@@ -38,5 +49,8 @@
                 </ul>
             </div>
         </div>
+        <footer>
+            <a href="https://icons8.com">Icon pack by Icons8</a>
+        </footer>
     </body>
 </html>
