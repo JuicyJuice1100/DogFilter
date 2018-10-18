@@ -2,21 +2,33 @@
 <html ng-app="DogFilter">
     <head>
         <!-- TODO: add all meta data -->
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.js"></script>
+        <!-- Angular Library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular-animate.min.js"></script>
+
+        <!-- Javascript Files -->
         <script type="text/javascript" src="../Scripts/Dogs.js"></script>
+
+        <!-- Style Sheets -->
     </head>
     <body>
         <div ng-controller="DogsController as dogs">
-            <!-- <select ng-options="dog as dog.breed for dog in dogs.breedFactory.allBreeds" ng-model="selected">
-                    <option value="">{{dogs.breedFactory.defaultSelect}}</option> 
-            </select> -->
+            <!-- Filter Search Textbox-->
+            <form ng-submit="dogs.getBreedImages()">
+                <input ng-change="dogs.reset()" type="text" ng-model="input">
+            </form>
+            <div ng-show="dogs.helperFactory.validation.showInvalidBreedMessage">
+                <span>{{dogs.helperFactory.validation.invalidBreedMessage}}</span>
+            </div>
+            <!-- List of Filtered Breeds -->
             <div>
                 <ul>
-                    <li ng-repeat="breed in dogs.breedFactory.breeds">
+                    <li ng-repeat="breed in dogs.breedFactory.breeds | filter : input">
                         <span ng-click="dogs.getBreedImages(breed.name)">{{breed.name}}</span>
                     </li>
                 </ul>
             </div>
+            <!-- Images of Selected Breed -->
             <div>
                 <ul>
                     <li ng-repeat="image in dogs.imageFactory.breedImages">

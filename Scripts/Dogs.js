@@ -7,8 +7,8 @@ const app = angular.module("DogFilter", [])
     /**************************************
      ------------- Controllers ------------
      **************************************/
-    app.controller("DogsController", ["HelperFactory", "BreedFactory", "ImageFactory", "DogsService",
-        function(helperFactory, breedFactory, imageFactory, dogsService){
+    app.controller("DogsController", ["$timeout", "HelperFactory", "BreedFactory", "ImageFactory", "DogsService",
+        function($timeout, helperFactory, breedFactory, imageFactory, dogsService){
             var dogs = this;
 
             /*********** Factories **********/
@@ -18,7 +18,18 @@ const app = angular.module("DogFilter", [])
 
             /*********** Functions **********/
             dogs.getBreedImages = function(breed){
-                dogsService.getBreedImages(breed);
+                if(breedFactory.breeds.some(dog => dog.name === breed)){
+                    dogsService.getBreedImages(breed);
+                } else {
+                    helperFactory.validation.showInvalidBreedMessage = true;
+                    $timeout(function(){
+                        helperFactory.validation.showInvalidBreedMessage = false;
+                    }, 5000)
+                }  
+            };
+
+            dogs.reset = function(){
+                helperFactory.resetArray(imageFactory.breedImages);
             };
         }
     ]);
@@ -49,6 +60,10 @@ const app = angular.module("DogFilter", [])
                     breedListUrl: 'https://dog.ceo/api/breeds/list',
                     breedImagesUrl: 'https://dog.ceo/api/breed/'
                 },
+                validation:{
+                    invalidBreedMessage: "Breed not in Database",
+                    showInvalidBreedMessage: false
+                },
                 /********* functions  ***********/
                 resetArray: resetArray
                 // MapArrayOfItemsWithId: mapArrayOfItemsWithId
@@ -66,9 +81,6 @@ const app = angular.module("DogFilter", [])
             var factory = {
                 defaultSelect: "Select a Dog Breed...",
                 breeds: [],
-
-                /******** Functions ********/
-                // resetAllBreeds: () => helperFactory.resetArray(this.allBreeds)
             }
 
             return factory;
@@ -81,14 +93,11 @@ const app = angular.module("DogFilter", [])
             //holds image data
             var factory = {
                 breedImages: [],
-                
-                /******** Functions **********/
-                // resetAllImages: () => helperFactory.resetArray(factory.breedImages)
             }
 
             return factory;
         }
-    ])
+    ]);
 
     /**************************************
      ------------- Services ------------
