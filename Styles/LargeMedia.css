@@ -1,0 +1,43 @@
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+#searchbar {
+    display: flex;
+}
+
+#searchbar input {
+    font-size: 25px;
+    width: 75%;
+    justify-content: center;
+    flex-basis: 100%;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+li span {
+    cursor: pointer;
+}
+    
+#container {
+    display: flex;
+}
+
+#sidebar {
+    max-width: 30%;
+}
+
+#imageSpace {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+
+img {
+    max-width: 200px;
+    max-height: 300px;
+}

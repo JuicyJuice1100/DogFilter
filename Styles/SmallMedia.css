@@ -1,0 +1,33 @@
+@media (max-width: 800px) {
+    ul {
+        list-style: none;
+    }
+    
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    
+    li {
+        cursor: pointer;
+    }
+        
+    #container {
+        display: flex;
+    }
+    
+    #sidebar {
+        max-width: 30%;
+    }
+    
+    #imageSpace {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        overflow: hidden;
+    }
+    
+    img {
+        width: 100px;
+        max-height: 100px;
+    }
+}
