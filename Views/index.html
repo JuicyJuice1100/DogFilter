@@ -15,8 +15,12 @@
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular-animate.min.js"></script>
 
+        <!-- Packages -->
+        <script src='../node_modules/ng-mask/dist/ngMask.min.js'></script>
+
+
         <!-- Javascript Files -->
-        <script type="text/javascript" src="../Scripts/Dogs.js"></script>
+        <script type="text/javascript" src="../Scripts/App.js"></script>
 
         <script type="text/javascript" src="../Scripts/Dogs/DogsController.js"></script>
         <script type="text/javascript" src="../Scripts/Dogs/DogsFactory.js"></script>
@@ -35,7 +39,7 @@
             <!-- Filter Search Textbox-->
             <div id="searchbar">
                 <form ng-submit="dogs.getBreedImages(dogs.dogsFactory.search)" novalidate>
-                    <input ng-change="dogs.reset()" type="text" ng-model="dogs.dogsFactory.search" placeholder="Search for a dog breed...">
+                    <input ng-change="dogs.reset()" type="text" ng-model="dogs.dogsFactory.search" placeholder="Search for a dog breed..." mask="@" restrict="reject" repeat="15">
                 </form>
 
                 <!-- Validation Message -->
