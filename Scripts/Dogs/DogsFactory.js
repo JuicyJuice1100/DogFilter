@@ -6,6 +6,7 @@ app.factory("DogsFactory", [
         var factory = {
             defaultSelect: "Select a Dog Breed...",
             breeds: [],
+            search: null
         }
 
         return factory;

@@ -34,8 +34,8 @@
         <div ng-controller="DogsController as dogs">
             <!-- Filter Search Textbox-->
             <div id="searchbar">
-                <form ng-submit="dogs.getBreedImages(input)" novalidate>
-                    <input ng-change="dogs.reset()" type="text" ng-model="input" placeholder="Search for a dog breed...">
+                <form ng-submit="dogs.getBreedImages(dogs.dogsFactory.search)" novalidate>
+                    <input ng-change="dogs.reset()" type="text" ng-model="dogs.dogsFactory.search" placeholder="Search for a dog breed...">
                 </form>
 
                 <!-- Validation Message -->
@@ -49,7 +49,7 @@
                     <!-- List of Filtered Breeds -->
                     <div>
                         <ul>
-                            <li ng-repeat="breed in dogs.dogsFactory.breeds | filter : input">
+                            <li ng-repeat="breed in dogs.dogsFactory.breeds | filter : dogs.dogsFactory.searched">
                                 <span ng-click="dogs.getBreedImages(breed.name)">{{breed.name}}</span>
                             </li>
                         </ul>
