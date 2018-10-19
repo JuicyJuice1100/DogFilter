@@ -49,8 +49,8 @@
                     <!-- List of Filtered Breeds -->
                     <div>
                         <ul>
-                            <li ng-repeat="breed in dogs.dogsFactory.breeds | filter : dogs.dogsFactory.searched">
-                                <span ng-click="dogs.getBreedImages(breed.name)">{{breed.name}}</span>
+                            <li ng-repeat="breed in dogs.dogsFactory.breeds | filter : dogs.dogsFactory.search"  ng-click="dogs.getBreedImages(breed.name)">
+                                <span>{{breed.name}}</span>
                             </li>
                         </ul>
                     </div>

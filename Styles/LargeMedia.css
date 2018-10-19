@@ -51,6 +51,7 @@ ul {
 #sidebar li {
     font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
     border-bottom: 1px solid #ccc;
+    cursor: pointer;
 }
 
 #sidebar li:last-child {
@@ -62,7 +63,6 @@ ul {
     color: #000;
     display: block;
     width: 200px;
-    cursor: pointer;
 
     -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
     -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
