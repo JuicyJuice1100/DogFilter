@@ -11,7 +11,7 @@ app.factory("HelperFactory", [
                 breedImagesUrl: 'https://dog.ceo/api/breed/'
             },
             validation:{
-                invalidBreedMessage: "Breed not in Database",
+                invalidBreedMessage: "Please Enter a Valid Dog Breed",
                 showInvalidBreedMessage: false
             },
             loading:{

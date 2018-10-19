@@ -9,7 +9,7 @@ app.controller("DogsController", ["$timeout", "HelperFactory", "DogsFactory", "I
 
         /*********** Functions **********/
         dogs.getBreedImages = function(breed){
-            dogs.dogsFactory.search = breed
+            dogs.dogsFactory.search = breed;
             if(dogsFactory.breeds.some(dog => dog.name.toLowerCase() === breed.toLowerCase())){ //checks to see if the input is valid
                 dogsService.getBreedImages(breed);
             } else {
@@ -23,5 +23,9 @@ app.controller("DogsController", ["$timeout", "HelperFactory", "DogsFactory", "I
         dogs.reset = function(){
             helperFactory.resetArray(imageFactory.breedImages);
         };
+
+        dogs.resetSearch = function(){
+            dogsFactory.search = ""
+        }
     }
 ]);

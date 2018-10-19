@@ -39,7 +39,7 @@
             <!-- Filter Search Textbox-->
             <div id="searchbar">
                 <form ng-submit="dogs.getBreedImages(dogs.dogsFactory.search)" novalidate>
-                    <input ng-change="dogs.reset()" type="text" ng-model="dogs.dogsFactory.search" placeholder="Search for a dog breed..." mask="@" restrict="reject" repeat="15">
+                    <input ng-change="dogs.reset()" ng-click="dogs.resetSearch()" type="text" ng-model="dogs.dogsFactory.search" placeholder="Search for a dog breed..." mask="@" restrict="reject" repeat="15">
                 </form>
 
                 <!-- Validation Message -->
