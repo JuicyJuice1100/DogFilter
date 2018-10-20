@@ -10,7 +10,7 @@ V 1.0
 + Search bar will clear on click
 + When you search you can hit enter to search verbatim what is in search bar.  (Must type exact breed name)
 + Search bar uses ng-mask.  Accepts only [a-zA-Z].
-+ On deviced larger than 800px use different css
++ On devices larger than 800px use different css
 
 # Packages
 
