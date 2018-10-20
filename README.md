@@ -19,7 +19,7 @@ npm for package management
 
 # Other 
 
-Icon image taken from icons8 ("https://icons8.com")
+Icon image taken from icons8 (https://icons8.com)
 
 # Run
 To run web application open index.html in browser
