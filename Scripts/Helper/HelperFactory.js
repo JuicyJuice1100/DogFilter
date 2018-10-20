@@ -12,7 +12,9 @@ app.factory("HelperFactory", [
             },
             validation:{
                 invalidBreedMessage: "Please Enter a Valid Dog Breed",
-                showInvalidBreedMessage: false
+                showInvalidBreedMessage: false,
+                errorMessage: "Unable to get to connect to Database.  Please try again or check internet connection.",
+                showErrorMessage: false,
             },
             loading:{
                 image: "../Content/Images/loading.gif",
