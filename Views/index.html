@@ -71,7 +71,7 @@
                     </span>
                     <ul ng-hide="dogs.helperFactory.loading.isLoading">
                         <li ng-repeat="image in dogs.imageFactory.breedImages">
-                            <img ng-src="{{image.link}}" ng-alt="{{image.link}}">
+                            <a ng-href="{{image.link}}" target="_blank"><img ng-src="{{image.link}}" ng-alt="{{image.link}}"></a>
                         </li>
                     </ul>
                 </div>
