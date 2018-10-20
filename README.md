@@ -11,6 +11,7 @@ V 1.0
 + When you search you can hit enter to search verbatim what is in search bar.  (Must type exact breed name)
 + Search bar uses ng-mask.  Accepts only [a-zA-Z].
 + On devices larger than 800px use different css
++ Can click images to open in new tab
 
 # Packages
 
