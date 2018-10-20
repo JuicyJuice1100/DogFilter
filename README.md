@@ -1,6 +1,6 @@
 # DogFilter
 
-AngularJS 1.7.5 web application using the open dogs api ((api available at: https://dog.ceo/dog-api/).
+AngularJS 1.7.5 web application using the open dogs api (api available at: https://dog.ceo/dog-api/).
 
 # Release 
 
