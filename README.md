@@ -16,6 +16,7 @@ V 1.0.1
 + cleaned html
 + added npm start for staring application
 + added http-server to package.json
++ seperated templates
 
 V 1.0.0
 + Gets images from dog api based on selected breed
@@ -39,6 +40,5 @@ npm for package management
 # TODO
 + use components, will help transition better to angular6+
 + add bundling for scripts
-+ seperate templates from index.html
 + remove id's that are not needed for css
 + move open api to a simple db, json-server or MVC to sql 

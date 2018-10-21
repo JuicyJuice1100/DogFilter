@@ -37,45 +37,10 @@
     <body>
         <div ng-controller="DogsController">
             <!-- Filter Search Textbox-->
-            <div id="searchbar">
-                <form ng-submit="getBreedImages(dogsFactory.search)" novalidate>
-                    <input ng-change="reset()" ng-click="resetSearch()" type="text" ng-model="dogsFactory.search" placeholder="Search for a dog breed..." mask="@" restrict="reject" repeat="15">
-                </form>
-            
-                <!-- Validation Message -->
-                <div class="validation" ng-show="helperFactory.validation.showInvalidBreedMessage">
-                    <span>{{dogs.helperFactory.validation.invalidBreedMessage}}</span>
-                </div>
-                <div class="validation" ng-show="helperFactory.validation.showErrorMessage">
-                    <span>{{dogs.helperFactory.validation.errorMessage}}</span>
-                </div>
-            </div>
+            <ng-include src="'Views/searchBar.html'"></ng-include>
 
-            <div id="container">
-                <div id="sidebar">
-                    <!-- List of Filtered Breeds -->
-                    <div>
-                        <ul>
-                            <li ng-repeat="breed in dogsFactory.breeds | filter : dogsFactory.search"  ng-click="getBreedImages(breed.name)">
-                                <span>{{breed.name}}</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Images of Selected Breed -->
-                <div id="imageSpace">
-                    <!-- Loading image -->
-                    <span class="loading" ng-show="helperFactory.loading.isLoading">
-                        <img ng-src="{{helperFactory.loading.image}}" ng-alt="{{helperFactory.loading.alt}}">
-                    </span>
-                    <ul ng-hide="helperFactory.loading.isLoading">
-                        <li ng-repeat="image in imageFactory.breedImages">
-                            <a ng-href="{{image.link}}" target="_blank"><img ng-src="{{image.link}}" ng-alt="{{image.link}}"></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <!-- Filtered Breed List and Images -->
+            <ng-include src="'Views/breedList.html'"></ng-include>
         </div>
     </body>
 </html>

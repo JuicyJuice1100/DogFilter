@@ -1,0 +1,25 @@
+<div id="container">
+    <!-- List of Filtered Breeds -->
+    <div id="sidebar">
+        <div>
+            <ul>
+                <li ng-repeat="breed in dogsFactory.breeds | filter : dogsFactory.search"  ng-click="getBreedImages(breed.name)">
+                    <span>{{breed.name}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Images of Selected Breed -->
+    <div id="imageSpace">
+        <!-- Loading image -->
+        <span class="loading" ng-show="helperFactory.loading.isLoading">
+            <img ng-src="{{helperFactory.loading.image}}" ng-alt="{{helperFactory.loading.alt}}">
+        </span>
+        <ul ng-hide="helperFactory.loading.isLoading">
+            <li ng-repeat="image in imageFactory.breedImages">
+                <a ng-href="{{image.link}}" target="_blank"><img ng-src="{{image.link}}" ng-alt="{{image.link}}"></a>
+            </li>
+        </ul>
+    </div>
+</div>
