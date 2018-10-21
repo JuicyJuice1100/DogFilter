@@ -37,7 +37,19 @@
     <body>
         <div ng-controller="DogsController">
             <!-- Filter Search Textbox-->
-            <ng-include src="'Views/searchBar.html'"></ng-include>
+            <div id="searchbar">
+                <form ng-submit="getBreedImages(dogsFactory.search)" novalidate>
+                    <input ng-change="reset()" ng-click="resetSearch()" type="text" ng-model="dogsFactory.search" placeholder="Search for a dog breed..." mask="@" restrict="reject" repeat="15">
+                </form>
+            
+                <!-- Validation Message -->
+                <div class="validation" ng-show="helperFactory.validation.showInvalidBreedMessage">
+                    <span>{{dogs.helperFactory.validation.invalidBreedMessage}}</span>
+                </div>
+                <div class="validation" ng-show="helperFactory.validation.showErrorMessage">
+                    <span>{{dogs.helperFactory.validation.errorMessage}}</span>
+                </div>
+            </div>
 
             <div id="container">
                 <div id="sidebar">
