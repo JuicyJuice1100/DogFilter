@@ -20,7 +20,7 @@
 
 
         <!-- Javascript Files -->
-        <script type="text/javascript" src="../Scripts/App.js"></script>
+        <script type="text/javascript" src="../Scripts/index.js"></script>
 
         <script type="text/javascript" src="../Scripts/Dogs/DogsController.js"></script>
         <script type="text/javascript" src="../Scripts/Dogs/DogsFactory.js"></script>
@@ -35,18 +35,18 @@
         <link rel="stylesheet" href="../Styles/SmallMedia.css">
     </head>
     <body>
-        <div ng-controller="DogsController as dogs">
+        <div ng-controller="DogsController">
             <!-- Filter Search Textbox-->
             <div id="searchbar">
-                <form ng-submit="dogs.getBreedImages(dogs.dogsFactory.search)" novalidate>
-                    <input ng-change="dogs.reset()" ng-click="dogs.resetSearch()" type="text" ng-model="dogs.dogsFactory.search" placeholder="Search for a dog breed..." mask="@" restrict="reject" repeat="15">
+                <form ng-submit="getBreedImages(dogsFactory.search)" novalidate>
+                    <input ng-change="reset()" ng-click="resetSearch()" type="text" ng-model="dogsFactory.search" placeholder="Search for a dog breed..." mask="@" restrict="reject" repeat="15">
                 </form>
 
                 <!-- Validation Message -->
-                <div class="validation" ng-show="dogs.helperFactory.validation.showInvalidBreedMessage">
+                <div class="validation" ng-show="helperFactory.validation.showInvalidBreedMessage">
                     <span>{{dogs.helperFactory.validation.invalidBreedMessage}}</span>
                 </div>
-                <div class="validation" ng-show="dogs.helperFactory.validation.showErrorMessage">
+                <div class="validation" ng-show="helperFactory.validation.showErrorMessage">
                     <span>{{dogs.helperFactory.validation.errorMessage}}</span>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                     <!-- List of Filtered Breeds -->
                     <div>
                         <ul>
-                            <li ng-repeat="breed in dogs.dogsFactory.breeds | filter : dogs.dogsFactory.search"  ng-click="dogs.getBreedImages(breed.name)">
+                            <li ng-repeat="breed in dogsFactory.breeds | filter : dogsFactory.search"  ng-click="getBreedImages(breed.name)">
                                 <span>{{breed.name}}</span>
                             </li>
                         </ul>
@@ -66,11 +66,11 @@
                 <!-- Images of Selected Breed -->
                 <div id="imageSpace">
                     <!-- Loading image -->
-                    <span class="loading" ng-show="dogs.helperFactory.loading.isLoading">
-                        <img ng-src="{{dogs.helperFactory.loading.image}}" ng-alt="{{dogs.helperFactory.loading.alt}}">
+                    <span class="loading" ng-show="helperFactory.loading.isLoading">
+                        <img ng-src="{{helperFactory.loading.image}}" ng-alt="{{helperFactory.loading.alt}}">
                     </span>
-                    <ul ng-hide="dogs.helperFactory.loading.isLoading">
-                        <li ng-repeat="image in dogs.imageFactory.breedImages">
+                    <ul ng-hide="helperFactory.loading.isLoading">
+                        <li ng-repeat="image in imageFactory.breedImages">
                             <a ng-href="{{image.link}}" target="_blank"><img ng-src="{{image.link}}" ng-alt="{{image.link}}"></a>
                         </li>
                     </ul>
