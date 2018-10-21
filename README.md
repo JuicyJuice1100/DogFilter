@@ -41,4 +41,4 @@ npm for package management
 + add bundling for scripts
 + seperate templates from index.html
 + remove id's that are not needed for css
-+ move to a simple db, json-server or any other one
++ move open api to a simple db, json-server or MVC to sql 
