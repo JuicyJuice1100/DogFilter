@@ -7,12 +7,11 @@ AngularJS 1.7.5 web application using the open dogs api (api available at: https
 
 # Install
 + npm install
-+ npm run setup
 + npm start
 
 # Release 
 
-V 0.5
+V 1.0.0
 + Gets images from dog api based on selected breed
 + Search bar will filter breeds
 + Search bar will clear on click
@@ -25,10 +24,11 @@ V 0.5
 
 npm for package management
 + ng-mask (package can be found https://github.com/candreoliveira/ngMask)
++ http-server (https://www.npmjs.com/package/http-server)
 
 # Other 
 
-Icon image taken from icons8 (https://icons8.com)
++ Icon image taken from icons8 (https://icons8.com)
 
 # Run
-To run web application open index.html in browser
++ npm start command
