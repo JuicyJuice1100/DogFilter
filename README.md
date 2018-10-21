@@ -5,7 +5,7 @@ AngularJS 1.7.5 web application using the open dogs api (api available at: https
 # Requirements
 + npm (needed: 5.x+)
 
-# Install
+# Install & Run
 + npm install
 + npm start
 
@@ -42,6 +42,3 @@ npm for package management
 + seperate templates from index.html
 + remove id's that are not needed for css
 + move to a simple db, json-server or any other one
-
-# Run
-+ npm start command
