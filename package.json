@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "http-server . -o"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "homepage": "https://github.com/JuicyJuice1100/DogFilter#readme",
   "dependencies": {
     "ng-mask": "^3.1.1"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1"
   }
 }
