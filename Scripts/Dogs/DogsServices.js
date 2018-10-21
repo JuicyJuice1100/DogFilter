@@ -6,7 +6,7 @@ app.service("DogsService", ["$http", "$timeout", "HelperFactory", "DogsFactory",
                 .then(function(result){
                     helperFactory.resetArray(dogsFactory.breeds); //resets all breeds to a blank array
                     var id = 0; //this will add ids to array of breeds
-                    result.data.message.map(function(breed){ //gets all the breeds from dog.api and adds them to the breeds array
+                    result.data.message.forEach(function(breed){ //gets all the breeds from dog.api and adds them to the breeds array
                         dogsFactory.breeds.push(
                             {
                                 id: id,
@@ -31,7 +31,7 @@ app.service("DogsService", ["$http", "$timeout", "HelperFactory", "DogsFactory",
                 .then(function(result){
                     helperFactory.resetArray(imageFactory.breedImages); //reset all images to a blank array
                     var id = 0;
-                    result.data.message.map(function(image){ //gets all the images of given breed from dog.api and adds them to the image array
+                    result.data.message.forEach(function(image){ //gets all the images of given breed from dog.api and adds them to the image array
                         imageFactory.breedImages.push(
                             {
                                 id: id,
