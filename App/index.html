@@ -20,36 +20,24 @@
 
 
         <!-- Javascript Files -->
-        <script type="text/javascript" src="../Scripts/index.js"></script>
+        <script type="text/javascript" src="Scripts/index.js"></script>
 
-        <script type="text/javascript" src="../Scripts/Dogs/DogsController.js"></script>
-        <script type="text/javascript" src="../Scripts/Dogs/DogsFactory.js"></script>
-        <script type="text/javascript" src="../Scripts/Dogs/DogsServices.js"></script>
+        <script type="text/javascript" src="Scripts/Dogs/DogsController.js"></script>
+        <script type="text/javascript" src="Scripts/Dogs/DogsFactory.js"></script>
+        <script type="text/javascript" src="Scripts/Dogs/DogsServices.js"></script>
 
-        <script type="text/javascript" src="../Scripts/Images/ImageFactory.js"></script>
-
-        <script type="text/javascript" src="../Scripts/Helper/HelperFactory.js"></script>
+        <script type="text/javascript" src="Scripts/Images/ImageFactory.js"></script>
+        <script type="text/javascript" src="Scripts/Helper/HelperFactory.js"></script>
+        
 
         <!-- Style Sheets -->
-        <link rel="stylesheet" href="../Styles/LargeMedia.css">
-        <link rel="stylesheet" href="../Styles/SmallMedia.css">
+        <link rel="stylesheet" href="Styles/LargeMedia.css">
+        <link rel="stylesheet" href="Styles/SmallMedia.css">
     </head>
     <body>
         <div ng-controller="DogsController">
             <!-- Filter Search Textbox-->
-            <div id="searchbar">
-                <form ng-submit="getBreedImages(dogsFactory.search)" novalidate>
-                    <input ng-change="reset()" ng-click="resetSearch()" type="text" ng-model="dogsFactory.search" placeholder="Search for a dog breed..." mask="@" restrict="reject" repeat="15">
-                </form>
-
-                <!-- Validation Message -->
-                <div class="validation" ng-show="helperFactory.validation.showInvalidBreedMessage">
-                    <span>{{dogs.helperFactory.validation.invalidBreedMessage}}</span>
-                </div>
-                <div class="validation" ng-show="helperFactory.validation.showErrorMessage">
-                    <span>{{dogs.helperFactory.validation.errorMessage}}</span>
-                </div>
-            </div>
+            <ng-include src="'Views/searchBar.html'"></ng-include>
 
             <div id="container">
                 <div id="sidebar">

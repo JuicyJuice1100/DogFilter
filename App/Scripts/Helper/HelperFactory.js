@@ -17,7 +17,7 @@ app.factory("HelperFactory", [
                 showErrorMessage: false,
             },
             loading:{
-                image: "../Content/Images/loading.gif",
+                image: "Content/Images/loading.gif",
                 alt: "Loading...",
                 isLoading: false
             },
